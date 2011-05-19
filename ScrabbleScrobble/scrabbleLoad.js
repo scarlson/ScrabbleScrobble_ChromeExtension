@@ -103,6 +103,9 @@ function onFetchSuccess(response) {
 
 function doFetch() {
     rack = $('.play .letter').text();
+    if(rack.length < 7){
+        rack = rack + '*';
+    };
     board = document.getElementById('inboard').value;
     //if(jQuery.trim(rack) !== "" && rack.length + jQuery.trim(board.value).length) > 2){
     var args  = new Array();
