@@ -1,3 +1,4 @@
+function SSSetup() {
 $('.lives').css('background', 'none');
 $('.lives label').remove();
 $('.count').css('background', 'url(http://i.imgur.com/Gyn0k.png)');
@@ -24,6 +25,21 @@ $('.lives span').css('position','relative');
 $('.lives span').css('top','12px');
 $('.Scrobble span').css('position','relative');
 $('.Scrobble span').css('top','12px');
+};
+
+SSSetup();
+
+
+$('body').append('<input type="text" id="inboard" size="55"></input>');
+$('#inboard').css('position', 'absolute');
+$('#inboard').css('width', '200px');
+$('#inboard').css('bottom', '105px');
+$('#inboard').css('z-index', '2000');
+$('#inboard').css('margin', '0 30%');
+
+$('.lives').change(function () {
+    SSSetup();
+});
 
 
 $('.Scrobble').click(function () {
@@ -31,7 +47,7 @@ $('.Scrobble').click(function () {
 });
 
 var rack = "";
-var board = '';
+var inboard = "";
 var result = $('#leaderboard');
 var runningReq = false;
 var req;
@@ -76,17 +92,22 @@ function Request(args, callback) {
 function onFetchSuccess(response) {
     runningReq = false;
     var res = '<h3>Best Plays</h3><table>';
-    jQuery.each( response.words, function(index){ res += '<tr><td style="width:20px">' + (index+1) + '.</td><td style="width:88px">' + this[0] + '</td><td style="width:20px">' + this[1] + '</td></tr>'; }); 
+    if(response.count !== "None"){
+        jQuery.each( response.words, function(index){ res += '<tr><td style="width:20px">' + (index+1) + '.</td><td style="width:88px">' + this[0] + '</td><td style="width:20px">' + this[1] + '</td></tr>'; }); 
+    } else {
+        res += "<tr>No Words Found</tr>"
+    }
     res = res + '</table>';
     result.html(res);
-} 
+};
 
 function doFetch() {
     rack = $('.play .letter').text();
+    board = document.getElementById('inboard').value;
     //if(jQuery.trim(rack) !== "" && rack.length + jQuery.trim(board.value).length) > 2){
     var args  = new Array();
     args[0] = jQuery.trim(rack)
-    args[1] = jQuery.trim('')
+    args[1] = jQuery.trim(board)
     Request(args, onFetchSuccess);
 }
     
