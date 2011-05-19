@@ -1,0 +1,21 @@
+{
+  "name": "Scrabble Scrobble",
+  "version": "1.0",
+  "description": "Word² Word Scrobbler.",
+  "icons": { "64": "icon.png" },
+  "background_page": "background.html",  
+  "content_scripts": [ {
+      "js": [ "jquery.js" ],
+      "matches": [ "http://wordsquared.com/*" ],
+      "run_at": "document_idle"
+   } ],
+  "permissions": [
+    "tabs",
+    "http://*/",
+    "https://*/"
+  ],
+  "page_action": {
+      "default_title": "Scrabble Scrobble",
+      "default_icon": "icon.png"
+  }
+}
