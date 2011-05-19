@@ -1,19 +1,24 @@
 function SSSetup() {
-$('.lives').css('background', 'none');
+$('.lives').css('visibility','hidden');
+$('.lives').css('position','absolute');
+$('.lives').css('left','0');
+$('.lives').css('top','0');
+$('.lives').css('z-index','-10');
+$('.game_in_progress').append('<div class="buttons2"><div class="sslives"><span>Lives</span></div><div class="Scrobble"><span>Scrobble</span></div></div>');
 $('.lives label').remove();
-$('.count').css('background', 'url(http://i.imgur.com/Gyn0k.png)');
-$('.lives').html($('.lives').html() + "<div class='Scrobble'><span>Scrobble</span></div>");
-$('.Scrobble').css('background', 'url(http://i.imgur.com/Gyn0k.png)');
-$('.count').html("<span>" + $('.count').html() + "</span>");
-$('.lives').css('width', '110px');
-$('.lives').css('right', '-10px');
-$('.count').css('display', 'block');
-$('.count').css('width', '110px');
-$('.count').css('height', '36px');
-$('.count').css('overflow', 'hidden');
-$('.count').css('margin-bottom', '4px');
-$('.count').css('font-size', '16px');
-$('.count').css('padding', '0');
+$('.sslives').css('background', 'url(http://i.imgur.com/Gyn0k.png)');
+$('.sslives').html("<span>" + $('.lives .count').html() + "</span>");
+$('.buttons2').css('background', 'url(http://i.imgur.com/Gyn0k.png)');
+$('.buttons2').css('position', 'absolute');
+$('.buttons2').css('right', '-10px');
+$('.buttons2').css('bottom', '0px');
+$('.buttons2').css('height', '78px');
+$('.buttons2').css('width', '110px');
+$('.buttons2').css('color', 'white');
+$('.sslives').css('display', 'block');
+$('.sslives').css('width', '110px');
+$('.sslives').css('height', '36px');
+$('.sslives').css('overflow', 'hidden');
 $('.Scrobble').css('display', 'block');
 $('.Scrobble').css('width', '110px');
 $('.Scrobble').css('height', '36px');
@@ -21,10 +26,14 @@ $('.Scrobble').css('overflow', 'hidden');
 $('.Scrobble').css('margin-bottom', '4px');
 $('.Scrobble').css('font-size', '16px');
 $('.Scrobble').css('cursor', 'pointer');
-$('.lives span').css('position','relative');
-$('.lives span').css('top','12px');
+$('.sslives span').css('position','relative');
+$('.sslives span').css('top','12px');
+$('.sslives span').css('text-align','center');
+$('.sslives span').css('display','block');
 $('.Scrobble span').css('position','relative');
 $('.Scrobble span').css('top','12px');
+$('.Scrobble span').css('text-align','center');
+$('.Scrobble span').css('display','block');
 };
 
 SSSetup();
@@ -103,7 +112,7 @@ function onFetchSuccess(response) {
 
 function doFetch() {
     rack = $('.play .letter').text();
-    if(rack.length < 7){
+    while(rack.length < 7){
         rack = rack + '*';
     };
     board = document.getElementById('inboard').value;
