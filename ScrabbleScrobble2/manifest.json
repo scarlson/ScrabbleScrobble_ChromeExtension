@@ -1,14 +1,14 @@
 {
-  "name": "Scrabble Scrobble",
-  "version": "1.0.1",
+  "name": "Scrabble Scrobble 2",
+  "version": "1.0.0",
   "description": "Word² Word Scrobbler.",
   "icons": { "16": "icon.png",
              "48": "icon.png",
             "128": "icon.png" },
   "background_page": "background.html",  
   "content_scripts": [ {
-      "js": [ "jquery.js" ],
-      "matches": [ "http://wordsquared.com/*" ],
+      "js": [ "jquery.js", "jquery-ui.js" ],
+      "matches": [ "http://*.wordsquared.com/*", "http://wordsquared.com/*" ],
       "run_at": "document_idle"
    } ],
   "permissions": [
@@ -17,7 +17,7 @@
     "http://*.wordsquared.com/"
   ],
   "page_action": {
-      "default_title": "Scrabble Scrobble",
+      "default_title": "Scrabble Scrobble 2",
       "default_icon": "icon.png"
   }
 }

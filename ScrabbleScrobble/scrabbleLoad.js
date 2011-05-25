@@ -111,12 +111,14 @@ function onFetchSuccess(response) {
 };
 
 function doFetch() {
-    result.html('<h3>Best Plays</h3><div class="loading"></div>');
-    $('.loading').html('<img src="http://i.imgur.com/TSQWi.gif"></img>');
+    result.html('<h3>Loading...</h3><div class="loading"></div>');
+    $('.loading').html('<img src="http://i.imgur.com/Jc9dB.gif"></img>');
     $('.loading img').css('padding-top','10px');
-    $('.loading img').css('width','50px');
+    $('.loading img').css('width','32px');
+    $('.loading').css('display','block');
+    $('.loading img').css('display','block');
     $('.loading').css('width','120px');
-    $('.loading img').css('height','50px');
+    $('.loading img').css('height','32px');
     $('.loading img').css('margin','0 auto');
     rack = $('.play .letter').text();
     while(rack.length < 7){

@@ -6,3 +6,8 @@ Add board tiles to the text bar that you want to play off of.
 
 Clicking scrobble will search the dictionary for playable words off the "board" tiles.
 
+
+Needing Fixing:
+Lives display doesn't update when you swap
+Disable Leaderboard
+

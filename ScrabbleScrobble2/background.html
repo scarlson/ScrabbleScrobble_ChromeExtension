@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <script>
+      function tabLoad(tabId, changeInfo, tab) {        
+        if (tab.url.indexOf('wordsquared.com') > -1) {
+            chrome.pageAction.show(tabId);
+        }
+      }
+      function iconClicked(tab) {
+            chrome.tabs.executeScript(tab.id, {file:"scrabbleLoad.js"});
+      }
+
+      // Listen for any changes to the URL of any tab.
+    chrome.tabs.onUpdated.addListener(tabLoad);
+    chrome.pageAction.onClicked.addListener(iconClicked);
+    </script>
+  </head>
+</html>
