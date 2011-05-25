@@ -1,5 +1,3 @@
-Unpacked Chrome Extension
-
 Clicking on the scrabble icon in the address bar will load the extension. 
 
 Add board tiles to the text bar that you want to play off of.  
@@ -8,6 +6,7 @@ Clicking scrobble will search the dictionary for playable words off the "board" 
 
 
 Needing Fixing:
-Lives display doesn't update when you swap
-Disable Leaderboard
-
+jGrowl Height
+Blank Tiles?
+Letter Values
+Prevent multiple ext loads
